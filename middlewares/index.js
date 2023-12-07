@@ -19,11 +19,7 @@ const checkPermission = async (req, res, next) => {
     const user = await User.findById(decoded.id);
     console.log(user);
 
-    if (user.role !== "admin") {
-      return res
-        .status(403)
-        .json({ message: "Bạn không có quyền thực hiện thao tác này!" });
-    }
+    
 
     next();
   } catch (err) {
